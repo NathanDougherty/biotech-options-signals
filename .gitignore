@@ -1,0 +1,56 @@
+# Python virtual environment
+venv/
+env/
+ENV/
+fresh_venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment variables
+.env
+
+# Specific data files to ignore - keep directory structure with README
+event_metrics/**/*.csv
+data/**/*.csv
+*.xlsx
+*.xls
+
+# Include analysis output but not large raw files
+analysis_output/**/*.csv
+!analysis_output/event_type_comparison.csv
+!analysis_output/notable_signals.csv
+!analysis_output/significant_patterns.csv
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Ignore backup files
+backups/
+backup_project_files/
+
+# macOS
+.AppleDouble
+.LSOverride

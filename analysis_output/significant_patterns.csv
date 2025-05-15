@@ -1,0 +1,12 @@
+Metric,Event1,Event2,Event1_Avg,Event2_Avg,Difference,P_Value,Finding
+ATM_IV,FDA Decisions,Phase 1/2 Data,9678.77644492766,21982.064249714287,-12303.287804786627,3.620686174977201e-08,FDA Decisions has lower ATM_IV than Phase 1/2 Data (p=0.0000)
+ATM_IV,Phase 3 Data,Phase 1/2 Data,9368.57610029762,21982.064249714287,-12613.488149416668,0.0008652314557794325,Phase 3 Data has lower ATM_IV than Phase 1/2 Data (p=0.0009)
+ATM_IV,Phase 1/2 Data,Data Announcements,21982.064249714287,8356.995047756403,13625.069201957884,4.435992488925444e-17,Phase 1/2 Data has higher ATM_IV than Data Announcements (p=0.0000)
+IV_Skew,FDA Decisions,Phase 3 Data,1.0758041849360198,0.8954423408027576,0.18036184413326217,0.0013471816897992397,FDA Decisions has higher IV_Skew than Phase 3 Data (p=0.0013)
+IV_Skew,FDA Decisions,Phase 1/2 Data,1.0758041849360198,0.9915873505778731,0.08421683435814675,0.019255826104450785,FDA Decisions has higher IV_Skew than Phase 1/2 Data (p=0.0193)
+IV_Skew,Phase 3 Data,Data Announcements,0.8954423408027576,1.1185927338353956,-0.22315039303263795,0.00016649129048091683,Phase 3 Data has lower IV_Skew than Data Announcements (p=0.0002)
+IV_Skew,Phase 1/2 Data,Data Announcements,0.9915873505778731,1.1185927338353956,-0.12700538325752253,0.0008813294681691393,Phase 1/2 Data has lower IV_Skew than Data Announcements (p=0.0009)
+CallPut_Volume_Ratio,Phase 3 Data,Phase 1/2 Data,0.7000000000000001,1.0,-0.29999999999999993,0.006872303308921126,Phase 3 Data has lower CallPut_Volume_Ratio than Phase 1/2 Data (p=0.0069)
+Implied_Move,FDA Decisions,Phase 1/2 Data,324.8420845801642,709.2736715048817,-384.43158692471746,2.1397000614563014e-08,FDA Decisions has lower Implied_Move than Phase 1/2 Data (p=0.0000)
+Implied_Move,Phase 3 Data,Phase 1/2 Data,300.8327675173851,709.2736715048817,-408.4409039874966,0.0008736081963336293,Phase 3 Data has lower Implied_Move than Phase 1/2 Data (p=0.0009)
+Implied_Move,Phase 1/2 Data,Data Announcements,709.2736715048817,282.86431708715867,426.409354417723,1.3091606388158254e-17,Phase 1/2 Data has higher Implied_Move than Data Announcements (p=0.0000)
