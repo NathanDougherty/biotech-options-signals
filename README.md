@@ -46,6 +46,54 @@ The analysis focuses on various options pricing signals:
 4. **Implied Move**: Market-implied price swing by expiration
 5. **Open Interest Patterns**: Market consensus on landing zones
 
+## Calculation Methodology
+
+This project uses precise financial modeling techniques to calculate the options metrics. Here's how each metric is derived:
+
+### Implied Volatility (IV)
+Calculated using the Black-Scholes model with a Newton-Raphson iterative method:
+- Starting with an initial estimate (σ = 0.3)
+- Computing d₁ and d₂ parameters: d₁ = (ln(S/K) + (r + σ²/2)t)/(σ√t)
+- Iteratively refining until option price converges
+- Bounded between 0.1% and 500% to ensure realistic values
+
+### Options Greeks
+The primary Greeks are calculated as follows:
+- **Delta**: Partial derivative of option price with respect to underlying price
+- **Gamma**: Second derivative of option price with respect to underlying price (δ²V/δS²)
+- **Theta**: Rate of time decay in option value (δV/δt)
+- **Vega**: Option's sensitivity to changes in volatility (δV/δσ)
+
+### IV Percentile
+Calculated by comparing current IV to historical values:
+- Percentile = (% of historical IVs less than current IV) × 100
+- Uses 30-day lookback period by default
+
+### Implied Move
+Calculated using:
+- For event-based: Current price × ATM IV × √(days to event/365)
+- For daily volatility: ATM IV ÷ √252 × √days × 100
+
+### IV Skew
+Two calculation methods:
+1. Ratio method: OTM put IV ÷ OTM call IV
+2. Difference method: OTM put IV - ATM call IV
+
+### Put/Call Ratio
+Based on trading volume:
+- Call/Put Ratio = Total call volume ÷ Total put volume
+- Values > 1 indicate bullish sentiment, < 1 indicate bearish sentiment
+
+### Risk Reversal
+Calculated as the difference between equidistant OTM call and put IVs:
+- Risk Reversal = OTM call IV - OTM put IV
+- Positive values suggest bullish sentiment, negative values suggest bearish sentiment
+
+### Open Interest
+Directly obtained from market data, representing the total number of outstanding contracts not yet closed out.
+
+Data is primarily sourced from financial APIs with error handling for missing data points and API limitations.
+
 ## Future Improvements
 
 1. Real-time signal monitoring for upcoming biotech catalysts
