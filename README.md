@@ -14,6 +14,58 @@ This repository contains a comprehensive analysis of options data surrounding bi
 - **data_fetcher.py**: Data collection utilities
 - **signal_calculator.py**: Algorithms for computing various options signals
 
+## Installation and Setup
+
+### Prerequisites
+- Python 3.8+
+- pip package manager
+
+### Step 1: Clone the repository
+```bash
+git clone https://github.com/NathanDougherty/biotech-options-signals.git
+cd biotech-options-signals
+```
+
+### Step 2: Set up environment
+```bash
+# Create and activate a virtual environment (optional but recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install required packages
+pip install -r requirements.txt
+```
+
+### Step 3: Configure API access
+Create a `.env` file in the project root with your Polygon.io API key:
+```
+POLYGON_API_KEY=your_api_key_here
+```
+
+To obtain an API key, sign up at [Polygon.io](https://polygon.io/). The project requires a minimum Starter tier subscription for options data access.
+
+## Data Sources
+
+This project uses the following data sources:
+
+1. **Options Data**: Retrieved from Polygon.io API, including:
+   - Options chains with strikes, expirations, and contract details
+   - Implied volatility and greeks (delta, gamma, theta, vega)
+   - Open interest and volume data
+   - Historical price data for volatility calculations
+
+2. **Event Catalog**: A curated database of biotech catalyst events included in the project:
+   - FDA approval decisions (PDUFA dates)
+   - Clinical trial readouts (Phase 1/2/3)
+   - Data presentations at major conferences
+   - Regulatory announcements
+
+3. **Historical Price Data**: When needed for backtesting, retrieved from:
+   - Polygon.io for primary analysis
+   - Yahoo Finance (via yfinance package) as a fallback option
+
+The data pipeline handles rate limiting, error recovery, and data cleaning to ensure reliable analysis.
+
 ## Detailed Analysis Report
 
 For a comprehensive analysis of our findings, please refer to the [Biotech Options Analysis Report](biotech_options_analysis_report.md). The report covers:
@@ -35,6 +87,68 @@ For a comprehensive analysis of our findings, please refer to the [Biotech Optio
 pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
+
+## Example Usage
+
+### Basic Signal Analysis
+
+```python
+from src.data_fetcher import OptionsDataFetcher
+from src.signal_calculator import OptionsSignalCalculator
+
+# Initialize the data fetcher
+fetcher = OptionsDataFetcher()
+
+# Analyze options signals for a specific ticker and expiration
+ticker = "BBIO"
+expiration = "2024-06-21"  # Format: YYYY-MM-DD
+
+# Get options chain
+options_chain = fetcher.get_options_chain(ticker, expiration)
+
+# Get current stock price
+current_price = fetcher.get_current_price(ticker)
+
+# Calculate signals
+signals = fetcher.calculate_signals(options_chain, current_price)
+
+# Print key metrics
+print(f"ATM Implied Volatility: {signals['ATM_IV']:.2f}%")
+print(f"Implied Move: {signals['Implied_Move']:.2f}%")
+print(f"IV Skew: {signals['IV_Skew']:.2f}")
+print(f"Call/Put Volume Ratio: {signals['CallPut_Volume_Ratio']:.2f}")
+```
+
+### Running a Complete Analysis
+
+```python
+from analyze_signals import SignalAnalyzer
+
+# Initialize the analyzer
+analyzer = SignalAnalyzer()
+
+# Run all analyses
+analyzer.run_all_analyses()
+
+# Results will be saved to the analysis_output directory
+print("Analysis complete. Check the analysis_output directory for results.")
+```
+
+## Screenshots
+
+### Streamlit App Interface
+
+![Streamlit App Interface](https://example.com/path-to-screenshot-1.png)
+
+### Implied Volatility Analysis
+
+![IV Analysis Chart](https://example.com/path-to-screenshot-2.png)
+
+### Signal Correlation Heatmap
+
+![Signal Correlation](https://example.com/path-to-screenshot-3.png)
+
+*(Note: Replace the example.com URLs with actual screenshot URLs when available)*
 
 ## Signal Types Analyzed
 
@@ -191,6 +305,41 @@ In our benchmark testing, IV-based predictions were compared to actual post-even
 - Our visualization tools allow identification of systematic biases in the predictions
 
 This accuracy assessment is critical for proper interpretation of our signals. While implied volatility provides valuable market consensus information, it should be considered alongside other metrics for a complete picture of market expectations.
+
+## Contributing
+
+Contributions to improve the analysis or expand the project are welcome. Please follow these steps:
+
+1. **Fork the repository**
+2. **Create a feature branch**:
+   ```bash
+   git checkout -b feature/my-new-feature
+   ```
+3. **Implement your changes and test thoroughly**
+4. **Commit your changes**:
+   ```bash
+   git commit -am 'Add some feature'
+   ```
+5. **Push to your branch**:
+   ```bash
+   git push origin feature/my-new-feature
+   ```
+6. **Submit a pull request**
+
+### Contribution Guidelines
+- Maintain code style and documentation standards
+- Add unit tests for new functionality
+- Update documentation to reflect changes
+- Respect the project's focus on biotech options analysis
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- [Polygon.io](https://polygon.io/) for providing options data APIs
+- The financial modeling open-source community for insights on options analytics
 
 ## Future Improvements
 
