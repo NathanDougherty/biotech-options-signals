@@ -1,24 +1,21 @@
 """
 FILE: data_fetcher.py
-PURPOSE: API data retrieval and signal extraction for options data analysis.
+Purpose:
+Fetches options data and extracts trading signals for biotech companies ahead of key events.
 
-This file contains the primary data acquisition functionality for the biotech options
-signal analysis project. It integrates with financial APIs (primarily Polygon.io) to
-fetch options data for biotech companies with upcoming catalysts.
+Main Features:
+Connects to the Polygon.io API with error handling and rate limits
+Retrieves full options chains including implied volatility (IV), Greeks, open interest, etc.
+Uses a list of known biotech catalyst events (e.g., FDA decisions, trial data releases)
+Calculates 10 types of trading signals from the raw data (e.g., IV skew, unusual volume, call/put ratio)
+Supports both historical and forward-looking event analysis
+Can compute implied volatility using Black-Scholes if not provided by the API
 
-Key functionality:
-- Connects to Polygon.io API with robust error handling and rate limiting mechanisms
-- Fetches complete options chains including IV, greeks, OI, and other metrics
-- Has predefined biotech catalysts (FDA dates, Phase trials, data releases) for analysis
-- Calculates 10 different options signals from raw data: IV, IV percentiles, implied moves,
-  IV skew, risk reversals, unusual volume, OI patterns, call/put ratios, calendar spreads, 
-  and large trades/sweeps
-- Handles both historical and future-looking events with appropriate date interval calculations
-- Implements Black-Scholes IV calculation when API-provided values are unavailable
-- Provides both event-specific and time-series analysis capabilities
+Role in System:
+This is the core data pipeline component, feeding data into signal_calculator.py for computations and analysis.py for visualization.
 
-The module integrates closely with signal_calculator.py for complex calculations and
-serves as the data foundation for analysis.py and analyze_signals.py modules.
+Copyright (c) 2024 Nathan Dougherty
+All rights reserved.
 """
 
 import os

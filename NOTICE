@@ -1,0 +1,23 @@
+Biotech Options Signal Analysis
+Copyright (c) 2024 Nathan Dougherty
+All rights reserved.
+
+This software and associated documentation files (the "Software") contains
+proprietary algorithms and methodologies for analyzing biotech options signals.
+While this code is publicly viewable on GitHub, it is subject to the terms of the
+LICENSE file included in this repository.
+
+The following components are covered by this copyright notice:
+- All Python scripts (.py files)
+- All Markdown documentation (.md files)
+- All data processing methodologies and algorithms
+- All visualization templates and designs
+- The Streamlit application and user interface
+
+Unauthorized distribution, modification, or commercial use beyond the scope
+of the provided license is prohibited.
+
+For licensing inquiries, please contact [your contact information].
+
+This copyright notice and permission notice shall be included in all
+copies or substantial portions of the Software. 
