@@ -1,3 +1,9 @@
+<!--
+Copyright (c) 2024 Nathan Dougherty
+ALL RIGHTS RESERVED.
+This code cannot be copied.
+-->
+
 # Biotech Options Signal Analysis: Key Findings Report
 
 ## 1. Predictive Signals in Historical Events

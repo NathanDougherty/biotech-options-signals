@@ -1,3 +1,16 @@
+<!--
+CONFIDENTIAL AND PROPRIETARY
+
+Copyright (c) 2024 Nathan Dougherty
+ALL RIGHTS RESERVED.
+
+This repository and all code, documentation, algorithms, and methodologies contained
+within are proprietary and confidential. Unauthorized reproduction, distribution, or
+use is strictly prohibited.
+
+This code cannot be copied without explicit permission.
+-->
+
 # Biotech Options Signal Analysis
 
 This project analyzes options pricing signals for binary biotech catalysts to identify market expectations, investor sentiment, and predictive patterns. The analysis focuses on both historical biotech events and upcoming binary catalysts.
@@ -62,6 +75,7 @@ This project uses the following data sources:
 
 3. **Historical Price Data**: When needed for backtesting, retrieved from:
    - Polygon.io for primary analysis
+   - Alpha Vantage for additional historical data
    - Yahoo Finance (via yfinance package) as a fallback option
 
 The data pipeline handles rate limiting, error recovery, and data cleaning to ensure reliable analysis.
@@ -332,9 +346,11 @@ Contributions to improve the analysis or expand the project are welcome. Please 
 - Update documentation to reflect changes
 - Respect the project's focus on biotech options analysis
 
-## License
+## License and Legal
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Copyright (c) 2024 Nathan Dougherty. ALL RIGHTS RESERVED.
+
+This code cannot be copied.
 
 ## Acknowledgments
 

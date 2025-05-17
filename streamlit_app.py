@@ -1,4 +1,12 @@
 """
+Copyright (c) 2024 Nathan Dougherty
+ALL RIGHTS RESERVED.
+This code cannot be copied.
+"""
+
+
+
+"""
 FILE: streamlit_app.py
 PURPOSE: Interactive web dashboard for biotech options signal analysis.
 

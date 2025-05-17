@@ -1,4 +1,12 @@
 """
+Copyright (c) 2024 Nathan Dougherty
+ALL RIGHTS RESERVED.
+This code cannot be copied.
+"""
+
+
+
+"""
 FILE: test_api.py
 PURPOSE: Polygon.io REST API connectivity validation script.
 

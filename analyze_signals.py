@@ -1,4 +1,12 @@
 """
+Copyright (c) 2024 Nathan Dougherty
+ALL RIGHTS RESERVED.
+This code cannot be copied.
+"""
+
+
+
+"""
 FILE: analyze_signals.py
 PURPOSE: Core analysis framework for biotech options signal analysis.
 

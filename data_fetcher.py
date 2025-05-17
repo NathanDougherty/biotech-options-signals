@@ -1,4 +1,12 @@
 """
+Copyright (c) 2024 Nathan Dougherty
+ALL RIGHTS RESERVED.
+This code cannot be copied.
+"""
+
+
+
+"""
 FILE: data_fetcher.py
 Purpose:
 Fetches options data and extracts trading signals for biotech companies ahead of key events.

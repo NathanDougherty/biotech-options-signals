@@ -1,3 +1,9 @@
+<!--
+Copyright (c) 2024 Nathan Dougherty
+ALL RIGHTS RESERVED.
+This code cannot be copied.
+-->
+
 # Data Directory
 
 This directory contains raw data files for the biotech options signal analysis project.

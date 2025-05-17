@@ -1,4 +1,12 @@
 """
+Copyright (c) 2024 Nathan Dougherty
+ALL RIGHTS RESERVED.
+This code cannot be copied.
+"""
+
+
+
+"""
 FILE: check_env.py
 PURPOSE: API key and environment variable validation utility.
 

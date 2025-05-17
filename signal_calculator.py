@@ -1,4 +1,12 @@
 """
+Copyright (c) 2024 Nathan Dougherty
+ALL RIGHTS RESERVED.
+This code cannot be copied.
+"""
+
+
+
+"""
 FILE: signal_calculator.py
 PURPOSE: Specialized options signal calculation algorithms and metrics generation.
 

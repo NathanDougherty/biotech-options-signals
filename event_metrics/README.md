@@ -1,3 +1,9 @@
+<!--
+Copyright (c) 2024 Nathan Dougherty
+ALL RIGHTS RESERVED.
+This code cannot be copied.
+-->
+
 # Event Metrics Directory
 
 This directory contains CSV files with options metrics data for biotech companies with various catalyst events.
