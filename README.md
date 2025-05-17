@@ -149,6 +149,7 @@ print("Analysis complete. Check the analysis_output directory for results.")
 ```
 
 ## Screenshots
+<img width="1212" alt="Screenshot 2025-05-16 at 10 58 57 PM" src="https://github.com/user-attachments/assets/e39c7a30-d4c5-42ff-ad27-ced67e4715bd" />
 
 ### Dashboard Overview
 ![Biotech Options Signal Analysis Dashboard](static/screenshots/dashboard/actual_dashboard.png)
