@@ -84,6 +84,38 @@ for i in range(max_iter):
     sigma = max(0.001, min(5.0, sigma))
 ```
 
+#### Mathematical Details of IV Calculation
+
+The Black-Scholes formula for option pricing is given by:
+
+**For Call Options:**
+C = S₀N(d₁) - Ke⁻ʳᵗN(d₂)
+
+**For Put Options:**
+P = Ke⁻ʳᵗN(-d₂) - S₀N(-d₁)
+
+Where:
+- C = Call option price
+- P = Put option price
+- S₀ = Current stock price
+- K = Strike price
+- r = Risk-free interest rate
+- t = Time to expiration (in years)
+- N(x) = Cumulative distribution function of the standard normal distribution
+- d₁ = [ln(S₀/K) + (r + σ²/2)t] / (σ√t)
+- d₂ = d₁ - σ√t
+- σ = Implied volatility (the value we're solving for)
+
+Since we observe the market price of options but don't know the implied volatility, we have to solve for σ numerically. The Black-Scholes formula cannot be algebraically rearranged to isolate σ, so we use the Newton-Raphson method:
+
+1. We start with an initial guess for volatility (σ = 0.3 or 30%)
+2. Calculate the theoretical option price using the current σ estimate
+3. Calculate the vega (∂V/∂σ), which measures the sensitivity of option price to changes in volatility
+4. Update our volatility estimate using: σₙ₊₁ = σₙ - (theoretical_price - market_price) / vega
+5. Repeat until we converge to a solution where |theoretical_price - market_price| < tolerance
+
+The implementation uses numerical approximations of the normal CDF (norm.cdf) and PDF (norm.pdf) from scipy.stats. This method typically converges in 5-10 iterations for most options, but we allow up to 100 iterations to handle extreme cases.
+
 This method:
 1. Starts with an initial volatility estimate (σ = 0.3 or 30%)
 2. Calculates d₁ and d₂ parameters using the standard Black-Scholes formula
