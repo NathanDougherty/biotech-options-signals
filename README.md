@@ -151,7 +151,7 @@ print("Analysis complete. Check the analysis_output directory for results.")
 ## Screenshots
 
 ### Dashboard Overview
-![Biotech Options Signal Analysis Dashboard](static/screenshots/event_type_IV_Skew.png)
+![Biotech Options Signal Analysis Dashboard](static/screenshots/dashboard/actual_dashboard.png)
 
 ### IV Analysis Chart
 ![Implied Volatility by Event Type](static/screenshots/event_type_ATM_IV.png)

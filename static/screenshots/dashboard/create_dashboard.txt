@@ -1,0 +1,10 @@
+To capture a better dashboard overview:
+
+1. Navigate to http://localhost:8501 in your web browser
+2. Take a screenshot of the main dashboard view (the one that shows the metrics table and analysis controls)
+3. Save the image as "dashboard_overview.png" in this directory
+4. Then run the following to update the README:
+
+   git add static/screenshots/dashboard/
+   git commit -m "Added dashboard overview screenshot"
+   git push 
