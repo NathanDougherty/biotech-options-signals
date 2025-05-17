@@ -4,8 +4,6 @@ ALL RIGHTS RESERVED.
 This code cannot be copied.
 """
 
-
-
 """
 FILE: streamlit_app.py
 PURPOSE: Interactive web dashboard for biotech options signal analysis.
@@ -46,6 +44,7 @@ import time
 import io
 import base64
 
+# Must be the first Streamlit command
 st.set_page_config(
     page_title="Biotech Options Signal Analysis",
     page_icon="📊",

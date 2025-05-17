@@ -150,19 +150,59 @@ print("Analysis complete. Check the analysis_output directory for results.")
 
 ## Screenshots
 
-### Streamlit App Interface
+### Dashboard Overview
+```
++-----------------------------------------------+
+|  Biotech Options Signal Analysis Dashboard    |
++---------------+-----------------------------+
+| Analysis      |                             |
+| Controls      |  [IV Trend Chart]           |
+|               |                             |
+| - Select      |                             |
+|   Tickers     +-----------------------------+
+|               |                             |
+| - Filter by   |  [Signal Correlation        |
+|   Event Type  |   Heatmap]                  |
+|               |                             |
+| - Analysis    |                             |
+|   Type        |                             |
+|               |                             |
++---------------+-----------------------------+
+```
 
-![Streamlit App Interface](https://example.com/path-to-screenshot-1.png)
-
-### Implied Volatility Analysis
-
-![IV Analysis Chart](https://example.com/path-to-screenshot-2.png)
+### IV Analysis Chart 
+```
+            Implied Volatility Approaching FDA Decision
+170% +
+     |                        *
+     |                      *   *
+140% +                    *
+     |                  *
+     |                *
+110% +              *
+     |            *
+     |        * *
+ 80% + * * * *
+     +----+----+----+----+----+----+----+----+----+
+       -30  -25  -20  -15  -10   -5    0    5   10
+                     Days to Event
+```
 
 ### Signal Correlation Heatmap
+```
+            Signal Correlation With Returns
+     +-------------------------------------------+
+     |              | 1-Day | 3-Day | 5-Day | 10-Day |
+     |----------------------------------------------|
+     | ATM_IV       |  0.22 |  0.35 |  0.40 |  0.20  |
+     | IV_Skew      |  0.65 |  0.72 |  0.68 |  0.45  |
+     | Call/Put_Ratio|  0.58 |  0.68 |  0.72 |  0.61  |
+     | Implied_Move |  0.45 |  0.51 |  0.48 |  0.35  |
+     | OI_Change    |  0.15 |  0.22 |  0.18 |  0.10  |
+     +-------------------------------------------+
+```
 
-![Signal Correlation](https://example.com/path-to-screenshot-3.png)
-
-*(Note: Replace the example.com URLs with actual screenshot URLs when available)*
+> Note: When running the app locally, you'll be able to see interactive versions of these visualizations with your actual data.
 
 ## Signal Types Analyzed
 
