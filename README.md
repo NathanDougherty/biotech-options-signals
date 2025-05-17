@@ -51,11 +51,46 @@ The analysis focuses on various options pricing signals:
 This project uses precise financial modeling techniques to calculate the options metrics. Here's how each metric is derived:
 
 ### Implied Volatility (IV)
-Calculated using the Black-Scholes model with a Newton-Raphson iterative method:
-- Starting with an initial estimate (σ = 0.3)
-- Computing d₁ and d₂ parameters: d₁ = (ln(S/K) + (r + σ²/2)t)/(σ√t)
-- Iteratively refining until option price converges
-- Bounded between 0.1% and 500% to ensure realistic values
+Calculated using the Black-Scholes model with a Newton-Raphson iterative method (implemented in `data_fetcher.py`):
+
+```python
+# Initial guess for volatility
+sigma = 0.3
+            
+# Maximum number of iterations
+max_iter = 100
+tolerance = 0.0001
+            
+for i in range(max_iter):
+    # Calculate d1 and d2
+    d1 = (np.log(stock_price/strike_price) + (risk_free_rate + 0.5 * sigma**2) * time_to_expiry) / (sigma * np.sqrt(time_to_expiry))
+    d2 = d1 - sigma * np.sqrt(time_to_expiry)
+                
+    if option_type.lower() == 'call':
+        price = stock_price * norm.cdf(d1) - strike_price * np.exp(-risk_free_rate * time_to_expiry) * norm.cdf(d2)
+        vega = stock_price * np.sqrt(time_to_expiry) * norm.pdf(d1)
+    else:  # put
+        price = strike_price * np.exp(-risk_free_rate * time_to_expiry) * norm.cdf(-d2) - stock_price * norm.cdf(-d1)
+        vega = stock_price * np.sqrt(time_to_expiry) * norm.pdf(d1)
+                
+    # Newton-Raphson method
+    diff = price - stock_price
+    if abs(diff) < tolerance:
+        return sigma
+                
+    sigma = sigma - diff/vega
+                
+    # Ensure sigma stays within reasonable bounds
+    sigma = max(0.001, min(5.0, sigma))
+```
+
+This method:
+1. Starts with an initial volatility estimate (σ = 0.3 or 30%)
+2. Calculates d₁ and d₂ parameters using the standard Black-Scholes formula
+3. Computes the theoretical option price and vega (sensitivity to volatility)
+4. Uses the Newton-Raphson method to iteratively improve the volatility estimate
+5. Converges when the theoretical price matches the market price (within tolerance)
+6. Bounds volatility between 0.1% and 500% to ensure realistic values
 
 ### Options Greeks
 The primary Greeks are calculated as follows:
