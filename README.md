@@ -151,58 +151,21 @@ print("Analysis complete. Check the analysis_output directory for results.")
 ## Screenshots
 
 ### Dashboard Overview
-```
-+-----------------------------------------------+
-|  Biotech Options Signal Analysis Dashboard    |
-+---------------+-----------------------------+
-| Analysis      |                             |
-| Controls      |  [IV Trend Chart]           |
-|               |                             |
-| - Select      |                             |
-|   Tickers     +-----------------------------+
-|               |                             |
-| - Filter by   |  [Signal Correlation        |
-|   Event Type  |   Heatmap]                  |
-|               |                             |
-| - Analysis    |                             |
-|   Type        |                             |
-|               |                             |
-+---------------+-----------------------------+
-```
+![Biotech Options Signal Analysis Dashboard](static/screenshots/event_type_IV_Skew.png)
 
-### IV Analysis Chart 
-```
-            Implied Volatility Approaching FDA Decision
-170% +
-     |                        *
-     |                      *   *
-140% +                    *
-     |                  *
-     |                *
-110% +              *
-     |            *
-     |        * *
- 80% + * * * *
-     +----+----+----+----+----+----+----+----+----+
-       -30  -25  -20  -15  -10   -5    0    5   10
-                     Days to Event
-```
+### IV Analysis Chart
+![Implied Volatility by Event Type](static/screenshots/event_type_ATM_IV.png)
 
 ### Signal Correlation Heatmap
-```
-            Signal Correlation With Returns
-     +-------------------------------------------+
-     |              | 1-Day | 3-Day | 5-Day | 10-Day |
-     |----------------------------------------------|
-     | ATM_IV       |  0.22 |  0.35 |  0.40 |  0.20  |
-     | IV_Skew      |  0.65 |  0.72 |  0.68 |  0.45  |
-     | Call/Put_Ratio|  0.58 |  0.68 |  0.72 |  0.61  |
-     | Implied_Move |  0.45 |  0.51 |  0.48 |  0.35  |
-     | OI_Change    |  0.15 |  0.22 |  0.18 |  0.10  |
-     +-------------------------------------------+
-```
+![IV Skew Differences Between Event Types](static/screenshots/event_comparison_IV_Skew_heatmap.png)
 
-> Note: When running the app locally, you'll be able to see interactive versions of these visualizations with your actual data.
+### Implied Move Analysis
+![Implied Move by Event Type](static/screenshots/event_type_Implied_Move.png)
+
+### Call/Put Volume Ratio
+![Call/Put Volume Ratio by Event Type](static/screenshots/event_type_CallPut_Volume_Ratio.png)
+
+> Note: These visualizations are from the interactive Streamlit app running with actual biotech options data.
 
 ## Signal Types Analyzed
 
@@ -356,9 +319,9 @@ In our benchmark testing, IV-based predictions were compared to actual post-even
 - For stocks with sufficient liquidity, implied moves derived from IV were plotted against actual returns
 - A perfect prediction would fall on the diagonal line (y=x) in our charts
 - Deviations from this line represent prediction errors, with points above the line indicating underestimation
-- Our visualization tools allow identification of systematic biases in the predictions
+- Our visualization tools allowed identification of systematic biases in the predictions
 
-This accuracy assessment is critical for proper interpretation of our signals. While implied volatility provides valuable market consensus information, it should be considered alongside other metrics for a complete picture of market expectations.
+This accuracy assessment is critical for proper interpretation of our signals. While implied volatility provided valuable market consensus information, it should be considered alongside other metrics for a complete picture of market expectations.
 
 ## Contributing
 
